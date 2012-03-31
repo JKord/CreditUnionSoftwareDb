@@ -1,0 +1,43 @@
+<h1>Pricelist list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Кредина спілка</th>
+            <th>Type</th>
+            <th>Nterestrate</th>
+            <th>Forthedate</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('Price_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.creditunion.getName() }}</td>
+            <td>{{ entity.type }}</td>
+            <td>{{ entity.nterestrate }}</td>
+            <td>{{ entity.forthedate }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('Price_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('Price_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('Price_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

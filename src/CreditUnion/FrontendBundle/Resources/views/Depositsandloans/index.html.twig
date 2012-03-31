@@ -1,0 +1,45 @@
+<h1>Depositsandloans list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Клієнт</th>
+            <th>Працівник</th>
+            <th>Прайс</th>
+            <th>Sum</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('Depositsandloans_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.customer.getPIB() }}</td>
+            <td>{{ entity.worker.getPIB() }}</td>
+            <td>ІД: {{ entity.price.getId() }}, тип: {{ entity.price.getType() }}</td>
+            <td>{{ entity.sum }}</td>
+            <td>{% if entity.date %}{{ entity.date|date('Y-m-d') }}{% endif%}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('Depositsandloans_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('Depositsandloans_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('Depositsandloans_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

@@ -1,0 +1,53 @@
+<h1>Customers list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Lastname</th>
+            <th>Name</th>
+            <th>Middlename</th>
+            <th>Seriesofpassport</th>
+            <th>Numberofpassport</th>
+            <th>Dateofbirth</th>
+            <th>Cityofresidence</th>
+            <th>Address</th>
+            <th>Phonenumber</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('Customers_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.lastname }}</td>
+            <td>{{ entity.name }}</td>
+            <td>{{ entity.middlename }}</td>
+            <td>{{ entity.seriesofpassport }}</td>
+            <td>{{ entity.numberofpassport }}</td>
+            <td>{% if entity.dateofbirth %}{{ entity.dateofbirth|date('Y-m-d H:i:s') }}{% endif%}</td>
+            <td>{{ entity.cityofresidence }}</td>
+            <td>{{ entity.address }}</td>
+            <td>{{ entity.phonenumber }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('Customers_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('Customers_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('Customers_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

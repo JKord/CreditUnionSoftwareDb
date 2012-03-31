@@ -1,0 +1,16 @@
+<h1>Depositsandloans creation</h1>
+
+<form action="{{ path('Depositsandloans_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('Depositsandloans') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>

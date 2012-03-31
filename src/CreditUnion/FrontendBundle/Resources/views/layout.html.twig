@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}Welcome! - Credit nion{% endblock %}</title>
+        
+        {% block stylesheets %}{% endblock %}                   
+        <link rel="stylesheet" href="{{ asset('bundles/blogfrontend/css/style1.css') }}" type="text/css"/>
+        
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block head%}
+        {% endblock %}
+        <div id="container">
+           {% block container %}
+           {% endblock %} 
+        </div>     
+    </body>
+</html>
