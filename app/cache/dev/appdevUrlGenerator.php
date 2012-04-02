@@ -38,6 +38,7 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        'Customers_update' => true,
        'Customers_delete' => true,
        'creditunion_frontend_default_index' => true,
+       'creditunion_frontend_default_contact' => true,
        'Depositsandloans' => true,
        'Depositsandloans_show' => true,
        'Depositsandloans_new' => true,
@@ -206,6 +207,11 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
     private function getcreditunion_frontend_default_indexRouteInfo()
     {
         return array(array (  0 => 'name',), array (  '_controller' => 'CreditUnion\\FrontendBundle\\Controller\\DefaultController::indexAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'name',  ),  1 =>   array (    0 => 'text',    1 => '/hello',  ),));
+    }
+
+    private function getcreditunion_frontend_default_contactRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'CreditUnion\\FrontendBundle\\Controller\\DefaultController::contact',), array (), array (  0 =>   array (    0 => 'text',    1 => '/contact',  ),));
     }
 
     private function getDepositsandloansRouteInfo()

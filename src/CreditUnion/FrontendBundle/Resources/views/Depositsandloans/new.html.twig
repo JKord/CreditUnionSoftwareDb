@@ -1,16 +1,21 @@
-<h1>Depositsandloans creation</h1>
+{% extends 'CreditUnionFrontendBundle::layout.html.twig' %}
+{% block title %}Додати новий вклад або кредит{% endblock %}
+
+{% block content %}   
+<h1>Додати новий вклад або кредит</h1>
 
 <form action="{{ path('Depositsandloans_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
-        <button type="submit">Create</button>
+        <button type="submit">Створити</button>
     </p>
 </form>
 
 <ul class="record_actions">
     <li>
         <a href="{{ path('Depositsandloans') }}">
-            Back to the list
+            Назад до списку
         </a>
     </li>
 </ul>
+{% endblock %}

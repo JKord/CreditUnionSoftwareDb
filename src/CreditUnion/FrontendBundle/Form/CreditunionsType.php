@@ -12,7 +12,7 @@ class CreditunionsType extends AbstractType
         $builder
             ->add('name')
             ->add('edrpou')
-        ;
+        ;       
     }
 
     public function getName()

@@ -9,7 +9,7 @@ class __TwigTemplate_e3638bd33d2c23600afdd66cbaddc85b extends Twig_Template
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
-            'container' => array($this, 'block_container'),
+            'content' => array($this, 'block_content'),
         );
     }
 
@@ -30,7 +30,7 @@ class __TwigTemplate_e3638bd33d2c23600afdd66cbaddc85b extends Twig_Template
     }
 
     // line 4
-    public function block_container($context, array $blocks = array())
+    public function block_content($context, array $blocks = array())
     {
         echo "   
 <h1>Welcome</h1>
@@ -42,7 +42,6 @@ class __TwigTemplate_e3638bd33d2c23600afdd66cbaddc85b extends Twig_Template
   <li><a href=\"/index.php/Price/\">Прайс лист</a></li>
   <li><a href=\"/index.php/Creditunions/\">Кредитні спілки</a></li>
 </ul>
-
 ";
     }
 

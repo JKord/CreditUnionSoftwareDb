@@ -1,4 +1,8 @@
-<h1>Pricelist</h1>
+{% extends 'CreditUnionFrontendBundle::layout.html.twig' %}
+{% block title %}Прайс{% endblock %}
+
+{% block content %}   
+<h1>Прайс</h1>
 
 <table class="record_properties">
     <tbody>
@@ -11,15 +15,15 @@
             <td>{{ entity.creditunion.getName() }}</td>
         </tr>
         <tr>
-            <th>Type</th>
+            <th>Тип</th>
             <td>{{ entity.type }}</td>
         </tr>
         <tr>
-            <th>Nterestrate</th>
+            <th>% ставка</th>
             <td>{{ entity.nterestrate }}</td>
         </tr>
         <tr>
-            <th>Forthedate</th>
+            <th>На період (місяців)</th>
             <td>{{ entity.forthedate }}</td>
         </tr>
     </tbody>
@@ -28,18 +32,19 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('Price') }}">
-            Back to the list
+           Назад до списку
         </a>
     </li>
     <li>
         <a href="{{ path('Price_edit', { 'id': entity.id }) }}">
-            Edit
+            Змінити
         </a>
     </li>
     <li>
         <form action="{{ path('Price_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit">Видалити</button>
         </form>
     </li>
 </ul>
+{% endblock %}

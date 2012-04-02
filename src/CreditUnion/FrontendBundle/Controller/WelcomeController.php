@@ -17,6 +17,6 @@ class WelcomeController extends Controller
     public function indexAction()
     {
     	// return new Response("<h1>Welcome");
-        return $this->render('CreditUnionFrontendBundle:Welcome:index.html.twig');      
+        return $this->render('CreditUnionFrontendBundle:pages:index.html.twig');      
     }
 }

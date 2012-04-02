@@ -195,6 +195,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'CreditUnion\\FrontendBundle\\Controller\\DefaultController::indexAction',)), array('_route' => 'creditunion_frontend_default_index'));
         }
 
+        // creditunion_frontend_default_contact
+        if ($pathinfo === '/contact') {
+            return array (  '_controller' => 'CreditUnion\\FrontendBundle\\Controller\\DefaultController::contact',  '_route' => 'creditunion_frontend_default_contact',);
+        }
+
         // Depositsandloans
         if (rtrim($pathinfo, '/') === '/Depositsandloans') {
             if (substr($pathinfo, -1) !== '/') {

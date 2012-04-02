@@ -3,57 +3,84 @@
 /* CreditUnionFrontendBundle:Depositsandloans:index.html.twig */
 class __TwigTemplate_70c062bc5be5257a70fbc217151938f1 extends Twig_Template
 {
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->blocks = array(
+            'title' => array($this, 'block_title'),
+            'content' => array($this, 'block_content'),
+        );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "CreditUnionFrontendBundle::layout.html.twig";
+    }
+
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 1
-        echo "<h1>Depositsandloans list</h1>
+        $this->getParent($context)->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Список вкладів та кредитів";
+    }
+
+    // line 4
+    public function block_content($context, array $blocks = array())
+    {
+        // line 5
+        echo "<h1>Список вкладів та кредитів</h1>
 
 <table class=\"records_list\">
     <thead>
         <tr>
             <th>Id</th>
-            <th>�볺��</th>
-            <th>���������</th>
-            <th>�����</th>
-            <th>Sum</th>
-            <th>Date</th>
-            <th>Actions</th>
+            <th>ПІБ клієнта</th>
+            <th>ПІБ працівника</th>
+            <th>Прайс</th>
+            <th>Сума</th>
+            <th>Дата</th>
+            <th>Дії</th>
         </tr>
     </thead>
     <tbody>
     ";
-        // line 16
+        // line 20
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "entities"));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 17
+            // line 21
             echo "        <tr>
             <td><a href=\"";
-            // line 18
+            // line 22
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("Depositsandloans_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "id"), "html", null, true);
             echo "</a></td>
             <td>";
-            // line 19
+            // line 23
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "entity"), "customer"), "getPIB", array(), "method"), "html", null, true);
             echo "</td>
             <td>";
-            // line 20
+            // line 24
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "entity"), "worker"), "getPIB", array(), "method"), "html", null, true);
             echo "</td>
-            <td>��: ";
-            // line 21
+            <td> Id: ";
+            // line 25
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "entity"), "price"), "getId", array(), "method"), "html", null, true);
-            echo ", ���: ";
+            echo ", тип: ";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "entity"), "price"), "getType", array(), "method"), "html", null, true);
             echo "</td>
             <td>";
-            // line 22
+            // line 26
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "sum"), "html", null, true);
             echo "</td>
             <td>";
-            // line 23
+            // line 27
             if ($this->getAttribute($this->getContext($context, "entity"), "date")) {
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "date"), "Y-m-d"), "html", null, true);
             }
@@ -62,15 +89,15 @@ class __TwigTemplate_70c062bc5be5257a70fbc217151938f1 extends Twig_Template
                 <ul>
                     <li>
                         <a href=\"";
-            // line 27
+            // line 31
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("Depositsandloans_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
-            echo "\">show</a>
+            echo "\">Показати</a>
                     </li>
                     <li>
                         <a href=\"";
-            // line 30
+            // line 34
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("Depositsandloans_edit", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
-            echo "\">edit</a>
+            echo "\">Змінити</a>
                     </li>
                 </ul>
             </td>
@@ -80,17 +107,17 @@ class __TwigTemplate_70c062bc5be5257a70fbc217151938f1 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 36
+        // line 40
         echo "    </tbody>
 </table>
 
 <ul>
     <li>
         <a href=\"";
-        // line 41
+        // line 45
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("Depositsandloans_new"), "html", null, true);
         echo "\">
-            Create a new entry
+             Створити новий запис
         </a>
     </li>
 </ul>

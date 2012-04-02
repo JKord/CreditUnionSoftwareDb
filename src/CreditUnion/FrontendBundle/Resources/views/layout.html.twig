@@ -5,7 +5,8 @@
         <title>{% block title %}Welcome! - Credit nion{% endblock %}</title>
         
         {% block stylesheets %}{% endblock %}                   
-        <link rel="stylesheet" href="{{ asset('bundles/blogfrontend/css/style1.css') }}" type="text/css"/>
+        <link rel="stylesheet" href="{{ asset('bundles/creditunionfrontend/css/style1.css') }}" type="text/css"/>
+        <link rel="stylesheet" href="{{ asset('bundles/creditunionfrontend/css//css3menu1/menu1.css') }}" type="text/css"/>
         
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -13,8 +14,43 @@
         {% block head%}
         {% endblock %}
         <div id="container">
-           {% block container %}
+           <div id="head">           
+             <ul id="css3menu1" class="topmenu" style="margin-left: 450px; margin-top: 40px;">
+			    <li class="topfirst"><a href="/index.php">Головна</a></li>
+				<li class="topmenu"><a href="#"><span>Item 1</span></a>
+		    	   <ul>
+					  <li><a href="#">Item 1 0</a></li>
+					  <li><a href="#">Item 1 1</a></li>
+					  <li><a href="#">Item 1 2</a></li>
+				   </ul>
+				</li>
+				<li class="toplast"><a href="/index.php/contact">Зв'язок</a></li>
+			 </ul>           
+           </div>
+           <div id="left_col">
+             <h3>Інформація про:</h3>
+             <ul>
+               <li><a href="/index.php/Customers/">Клієнти</a></li>
+               <li><a href="/index.php/Worker/">Працівники</a></li>
+               <li><a href="/index.php/Depositsandloans/">Вклади та Кредити</a></li>
+               <li><a href="/index.php/Price/">Прайс лист</a></li>
+               <li><a href="/index.php/Creditunions/">Кредитні спілки</a></li>
+             </ul> 
+             <h3>Операції:</h3>
+             <ul>
+               <li><a href="#">ап</a></li>
+               <li><a href="#">па</a></li>              
+             </ul> 
+           </div>  
+           <div id="content">
+              {% block content %}
+              {% endblock %} 
+           </div>  
+           {% block containerFother %}
            {% endblock %} 
+           <div id="footer">
+               Сайт Кредитна спілка для дипломної роботи © 2012р. Всі права захищені.
+           </div>
         </div>     
     </body>
 </html>

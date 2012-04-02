@@ -1,15 +1,19 @@
-<h1>Depositsandloans list</h1>
+{% extends 'CreditUnionFrontendBundle::layout.html.twig' %}
+{% block title %}Список вкладів та кредитів{% endblock %}
+
+{% block content %}
+<h1>Список вкладів та кредитів</h1>
 
 <table class="records_list">
     <thead>
         <tr>
             <th>Id</th>
-            <th>�볺��</th>
-            <th>���������</th>
-            <th>�����</th>
-            <th>Sum</th>
-            <th>Date</th>
-            <th>Actions</th>
+            <th>ПІБ клієнта</th>
+            <th>ПІБ працівника</th>
+            <th>Прайс</th>
+            <th>Сума</th>
+            <th>Дата</th>
+            <th>Дії</th>
         </tr>
     </thead>
     <tbody>
@@ -18,16 +22,16 @@
             <td><a href="{{ path('Depositsandloans_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
             <td>{{ entity.customer.getPIB() }}</td>
             <td>{{ entity.worker.getPIB() }}</td>
-            <td>��: {{ entity.price.getId() }}, ���: {{ entity.price.getType() }}</td>
+            <td> Id: {{ entity.price.getId() }}, тип: {{ entity.price.getType() }}</td>
             <td>{{ entity.sum }}</td>
             <td>{% if entity.date %}{{ entity.date|date('Y-m-d') }}{% endif%}</td>
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('Depositsandloans_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('Depositsandloans_show', { 'id': entity.id }) }}">Показати</a>
                     </li>
                     <li>
-                        <a href="{{ path('Depositsandloans_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('Depositsandloans_edit', { 'id': entity.id }) }}">Змінити</a>
                     </li>
                 </ul>
             </td>
@@ -39,7 +43,8 @@
 <ul>
     <li>
         <a href="{{ path('Depositsandloans_new') }}">
-            Create a new entry
+             Створити новий запис
         </a>
     </li>
 </ul>
+{% endblock %}

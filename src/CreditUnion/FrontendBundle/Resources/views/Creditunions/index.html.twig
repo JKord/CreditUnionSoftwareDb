@@ -1,12 +1,15 @@
-<h1>Creditunions list</h1>
+{% extends 'CreditUnionFrontendBundle::layout.html.twig' %}
+{% block title %}Список кредитних спілок{% endblock %}
 
+{% block content %}
+<h1>Список кредитних спілок</h1>
 <table class="records_list">
     <thead>
         <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Edrpou</th>
-            <th>Actions</th>
+            <th>Назва</th>
+            <th>ЕДРПОУ</th>
+            <th>Дії</th>
         </tr>
     </thead>
     <tbody>
@@ -18,10 +21,10 @@
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('Creditunions_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('Creditunions_show', { 'id': entity.id }) }}">Показати</a>
                     </li>
                     <li>
-                        <a href="{{ path('Creditunions_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('Creditunions_edit', { 'id': entity.id }) }}">Змінити</a>
                     </li>
                 </ul>
             </td>
@@ -33,7 +36,8 @@
 <ul>
     <li>
         <a href="{{ path('Creditunions_new') }}">
-            Create a new entry
+            Створити новий запис
         </a>
     </li>
 </ul>
+{% endblock %}

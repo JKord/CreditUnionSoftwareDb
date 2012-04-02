@@ -16,4 +16,12 @@ class DefaultController extends Controller
     {
         return array('name' => $name);
     }
+    
+    /**
+     * @Route("/contact")
+     */
+    public function contact()
+    {    	
+    	return $this->render('CreditUnionFrontendBundle:pages:contact.html.twig');
+    }
 }

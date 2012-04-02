@@ -1,4 +1,8 @@
-<h1>Depositsandloans</h1>
+{% extends 'CreditUnionFrontendBundle::layout.html.twig' %}
+{% block title %}{{ entity.price.getType() }}{% endblock %}
+
+{% block content %}   
+<h1>{{ entity.price.getType() }}</h1>
 
 <table class="record_properties">
     <tbody>
@@ -19,11 +23,11 @@
             <td>ID: {{ entity.price.getId() }}, тип: {{ entity.price.getType() }}</td>
         </tr>
         <tr>
-            <th>Sum</th>
+            <th>Сума</th>
             <td>{{ entity.sum }}</td>
         </tr>
         <tr>
-            <th>Date</th>
+            <th>Дата</th>
             <td>{{ entity.date|date('Y-m-d') }}</td>
         </tr>
     </tbody>
@@ -32,18 +36,19 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('Depositsandloans') }}">
-            Back to the list
+            Назад до списку
         </a>
     </li>
     <li>
         <a href="{{ path('Depositsandloans_edit', { 'id': entity.id }) }}">
-            Edit
+            Змінити
         </a>
     </li>
     <li>
         <form action="{{ path('Depositsandloans_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit">Видалити</button>
         </form>
     </li>
 </ul>
+{% endblock %}

@@ -1,14 +1,18 @@
-<h1>Worker list</h1>
+{% extends 'CreditUnionFrontendBundle::layout.html.twig' %}
+{% block title %}Список працівників{% endblock %}
+
+{% block content %}
+<h1>Список працівників</h1>
 
 <table class="records_list">
     <thead>
         <tr>
             <th>Id</th>
-            <th>Lastname</th>
-            <th>Name</th>
-            <th>Middlename</th>
-            <th>Specialty</th>
-            <th>Actions</th>
+            <th>Прізвище</th>
+            <th>Ім'я</th>
+            <th>По батькові</th>
+            <th>Спеціальність</th>
+            <th>Дії</th>
         </tr>
     </thead>
     <tbody>
@@ -22,10 +26,10 @@
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('worker_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('worker_show', { 'id': entity.id }) }}">Показати</a>
                     </li>
                     <li>
-                        <a href="{{ path('worker_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('worker_edit', { 'id': entity.id }) }}">Змінити</a>
                     </li>
                 </ul>
             </td>
@@ -37,7 +41,8 @@
 <ul>
     <li>
         <a href="{{ path('worker_new') }}">
-            Create a new entry
+            Створити новий запис
         </a>
     </li>
 </ul>
+{% endblock %}
